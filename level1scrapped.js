@@ -9,9 +9,9 @@ let fs = require("fs");
 let jsdom = require("jsdom");
 let excel = require("excel4node");
 let axios = require("axios");
-const { title } = require("process");
 
-// making a promise to download the data from pepcoding website.
+
+// links for resources of level 1
 let arrlinks = [
   "https://www.pepcoding.com/resources/online-java-foundation/getting-started",
   "https://www.pepcoding.com/resources/online-java-foundation/patterns",
@@ -64,6 +64,7 @@ sheet.cell(2, 4).string(" Status[Yes/No] ").style(headStyle);
 
 // getting data from web and putiing in excell sheet
 for (let c = 0; c < arrlinks.length; c++) {
+  // making a promise to download the data from pepcoding website.
   let downloadHtmlPromise = axios.get(arrlinks[c]);
   downloadHtmlPromise
     .then(function (html) {
